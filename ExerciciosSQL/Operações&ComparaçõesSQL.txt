@@ -1,0 +1,40 @@
+Operações Aritméticas e Operadores Lógicos e de Comparação no MySQL 
+
+1-  Utilizando um apelido para a tabela funcionarios, efetue uma consulta que retorne todos os registros que possuem código maior que 2 e salário menor que R$ 1500,00. 
+
+SELECT * FROM funcionario f
+WHERE
+f.cd_func > '2' AND
+f.vl_salario < '1500.00';
+
+
+2-  Utilizando um apelido para a tabela funcionarios, efetue uma consulta que retorne todos os registros que possuem nome igual a ‘Netuno’ ou sobrenome igual a ‘Trump’. 
+
+SELECT * FROM funcionario f
+WHERE
+f.nm_nome = 'Netuno' OR
+f.nm_sobrenome = 'Trump';
+
+
+3-  Utilizando  Operadores  de  Comparação,  efetue  uma  consulta  que  retorne  todos  os  registros  com  salário diferente de R$ 1000,00. 
+
+SELECT * FROM funcionario
+WHERE
+vl_salario != '1000.00';
+
+
+4-  Utilizando Operadores de Comparação, efetue uma consulta que retorne todos os registros com salário igual ou maior que R$ 1500,00. 
+
+SELECT * FROM 'funcionario'
+WHERE
+vl_salario >= '1500.00';
+
+
+5-  Efetue uma consulta que retorne o salário do funcionário atual do funcionário, o salário com aumento de 20% e o salário, já com o aumento de 20%, porém, descontado do imposto de 10%. 
+
+SELECT nm_nome, 
+nm_sobrenome, 
+vl_salario AS 'Salario Atual', 
+vl_salario * 1.2 AS 'Salario com aumento de 20%', 
+((vl_salario * 1.2) - ((vl_salario * 1.2) * 0.10)) AS 'Salario Liquido'
+FROM funcionario;

@@ -1,0 +1,100 @@
+Introdução a Structured Query Language - SQL 
+
+1-  Construa uma consulta (SELECT) que retorne somente os campos nm_sobrenome e dt_criacao para os usuários que possuem nome igual a Netuno.
+
+SELECT nm_sobrenome, dt_criacao FROM 'usuarios'
+WHERE
+nm_nome = 'Netuno';
+
+
+2-  Construa uma consulta (SELECT) que retorne somente os campos cd_usuarios, nm_nome e dt_criacao para os usuários que possuem código igual a 3. 
+
+SELECT cd_usuario, nm_nome, dt_criacao FROM 'usuarios'
+WHERE
+cd_usuario = '3';
+
+
+3-  Utilizando um apelido (alias) para a tabela usuarios, efetue uma consulta (SELECT) que retorne todos os registros que possuem código igual a 2. 
+
+SELECT * FROM usuarios u
+WHERE
+cd_usuario = '2';
+
+
+4-  Insira os registros abaixo na tabela usuarios:
+
+INSERT INTO usuarios VALUES ('6', 'Marcus', 'Pontes', 'astro@pontes.com.br', STR_TO_DATE('17-02-2023', '%d-%m-%Y'));
+INSERT INTO usuarios VALUES ('7', 'Tomas', 'Edson', 'null', STR_TO_DATE('01-02-2023', '%d-%m-%Y'));
+INSERT INTO usuarios VALUES ('8', 'Michael', 'Jackson', 'michael@jackson.com.br', STR_TO_DATE('02-12-2022', '%d-%m-%Y'));
+INSERT INTO usuarios VALUES ('9', 'Roberto', 'null', 'roberto@carlos.com.br', STR_TO_DATE('01-11-2022', '%d-%m-%Y'));
+
+
+5-  Construa uma consulta (SELECT) que indique os usuarios que não possuem sobrenome cadastrado.
+
+SELECT * FROM 'usuarios'
+WHERE
+nm_sobrenome = 'null';
+
+
+6-  Construa uma consulta (SELECT) que aponte os usuarios que não possuem e-mail cadastrado.
+
+SELECT * FROM 'usuarios'
+WHERE
+ds_email = 'null';
+
+
+7-  Construa uma consulta (SELECT) que aponte a quantidade de usuarios cadastrados. 
+
+SELECT cd_usuario FROM 'usuarios';
+
+
+8-  Construa uma consulta (SELECT) que aponte a quantidade de usuarios cadastrados e que NÃO possuem e-mail.
+
+SELECT cd_usuario FROM 'usuarios' 
+WHERE
+ds_email = 'null';
+ 
+
+9-  Construa uma consulta (SELECT) que aponte a quantidade de usuarios cadastrados e que possuem e-mail. 
+
+SELECT cd_usuario, nm_nome, ds_email FROM `usuarios` 
+WHERE 
+ds_email != 'null'
+
+
+10- Criar uma tabela departamentos com os seguintes atributos: 
+  cd_departamento 
+  nm_departamento 
+  dt_criacao 
+
+CREATE TABLE departamentos (
+    cd_departamento INT(6),
+    nm_departamento VARCHAR(30),
+    dt_criacao DATE
+);
+
+
+11- Insira os registros abaixo na tabela departamentos: 
+
+INSERT INTO departamentos VALUES ('1', 'Tecnologia da Informação', STR_TO_DATE('01-01-2021', '%d-%m-%Y'));
+INSERT INTO departamentos VALUES ('2', 'Financeiro', STR_TO_DATE('01-01-2021', '%d-%m-%Y'));
+INSERT INTO departamentos VALUES ('3', 'Gerência', STR_TO_DATE('01-01-2021', '%d-%m-%Y'));
+INSERT INTO departamentos VALUES ('4', 'Recursos Humanos', STR_TO_DATE('00-00-0000', '%d-%m-%Y'));
+
+
+12- Construa uma consulta (SELECT) que aponte todos os departamentos da empresa SEM o respectivo código de cada um no resultado da pesquisa. 
+
+SELECT nm_departamento, dt_criacao FROM 'departamentos'
+
+
+
+
+
+
+
+
+
+
+
+
+

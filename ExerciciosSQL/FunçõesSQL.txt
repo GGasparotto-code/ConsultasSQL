@@ -1,0 +1,53 @@
+1-  Efetue uma consulta na tabela funcionarios que retorne o MAIOR valor de salário para os registros que possuem código MAIOR que 2. 
+
+SELECT MAX(vl_salario) FROM funcionarios
+WHERE
+cd_func > 2;
+
+
+2-  Efetue uma consulta na tabela funcionarios e verifique a MÈDIA dos salários para os funcionários que possuem nome IGUAL a ‘Netuno’ ou sobrenome IGUAL a ‘Trump’. 
+
+SELECT AVG(vl_salario) FROM funcionarios
+WHERE
+nm_nome = 'Netuno' OR
+nm_sobrenome = 'Trump';
+
+
+3-  Efetue uma consulta na tabela funcionarios e verifique a MÉDIA dos salários para os funcionários que possuem nome IGUAL a ‘Astrogildo’. 
+
+SELECT AVG(vl_salario) FROM funcionarios
+WHERE
+nm_nome = 'Astrogildo';
+
+
+4-  Efetue uma consulta na tabela funcionarios e verifique a quantidade de funcionários que possuem salário MENOR que a MÉDIA de todos. 
+
+SELECT COUNT(*) FROM funcionarios
+WHERE
+vl_salario < (SELECT AVG(vl_salario) FROM funcionarios);
+
+
+5-  Efetue uma consulta na tabela funcionarios e selecione NOME, SOBRENOME e SALARIO dos funcionários que possuem valor de salário IGUAL ou MENOR ao menor valor cadastrado. 
+
+SELECT nm_nome, nm_sobrenome, vl_salario FROM funcionarios
+WHERE
+vl_salario <= (SELECT MIN(vl_salario) FROM funcionarios);
+
+
+6-  Efetue  uma  consulta  na  tabela  funcionarios  e  selecione  o  registro  do  funcionário  com  MENOR  salário contratado (dt_criacao) no ano de 2020. 
+
+SELECT * FROM funcionarios
+WHERE
+vl_salario = (SELECT MIN(vl_salario) FROM funcionarios WHERE
+YEAR(dt_criacao) = '2020') AND
+YEAR(dt_criacao) = '2020';
+
+
+7-  Efetue uma consulta na tabela funcionarios e verifique a SOMA dos salários para os funcionários contratados (dt_criacao)  no  ano  de  2023  com  valor  de  salário  MENOR  que  a  MÉDIA  dos  salários  dos  funcionários contratados em 2023. 
+
+SELECT SUM(vl_salario) FROM funcionarios
+WHERE
+YEAR(dt_criacao) = '2023' AND
+vl_salario < (SELECT AVG(vl_salario) FROM funcionarios
+	WHERE
+	YEAR(dt_criacao) = '2023');
