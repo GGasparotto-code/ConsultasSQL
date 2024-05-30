@@ -1,4 +1,4 @@
-# ConsultasSQL
+# 🐬 ConsultasSQL
 Este repositório contém uma coleção de exercícios e exemplos de consultas SQL.
 
 ## Estrutura do Repositório
